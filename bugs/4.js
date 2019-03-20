@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Button, Text, View } from 'react-native';
-import { createTabNavigator, createStackNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 
 const styles = StyleSheet.create({
   screen: {
@@ -46,20 +46,17 @@ const FriendsScreen = ({ navigation }) => (
 // Do not edit anything above this line
 /////
 
-const ContactNavigator = createTabNavigator({
+const ContactScreen = createBottomTabNavigator({
   InfoScreen,
   FriendsScreen,
 });
-
-const ContactScreen = () => (
-  <View style={styles.screen}>
-    <ContactNavigator />
-  </View>
-);
 
 const AppNavigator = createStackNavigator({
   HomeScreen,
   ContactScreen,
 });
 
-export default AppNavigator;
+//export default AppNavigator;
+const AppContainer = createAppContainer(AppNavigator);
+
+export default AppContainer;
